@@ -1,0 +1,696 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    padding-top: 10px;
+    font-family: sans-serif;
+    
+}
+
+a{
+    color: inherit;
+}
+
+
+img{
+    height: 100%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#holder{
+    width: 900px;
+    min-height: 750px;
+    height: auto;
+    margin: auto;
+    border-radius: 15px 15px 15px 15px;
+    background: #0099ff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #26b3ff, #0083ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #26b3ff, #0083ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #26b3ff, #0083ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #26b3ff, #0083ff); /* Standard syntax */
+}
+
+
+
+header{
+    width: 900px;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#head{
+    width: 900px;
+    height: 180px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#titulo{
+    width:600px;
+    height: 30px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#logo{
+    width: 180px;
+    height: 180px;
+    float: right;
+    margin-right: 20px;
+}
+
+#logoImg{
+    width: 180px;
+    height: 180px;
+}
+
+#areaMenu{
+    height: 120px;
+    width: 900px;
+}
+
+nav{
+    width: 700px;
+    height: 120px;
+    float: left;
+}
+
+.menuItem{
+    height: 120px;
+    width: 175px;
+    float: left;
+    transition: 1s;
+    color: #ffffff;
+}
+
+.menuItem:hover{
+    background-color: #efa52d;
+    transition: 1s;
+    color: #000000;
+}
+
+.iconeMenu{
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icons{
+    height: 100%;
+    width: auto;
+}
+
+.tituloOpcao{
+    width: 175px;
+    height: 20px;
+    margin: 0px;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+}
+
+#direita{
+    width: 190px;
+    height: 110px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    float: left;
+}
+
+#welcome{
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+#logout{
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    float: right;
+    color: black;
+    transition: 1s;
+}
+
+#logout:hover{
+    color: #ffffff;
+    transition: 1s;
+}
+
+main{
+    width: 100%;
+    min-height: 390px;
+    height: auto;
+    padding-top: 10px;
+    background-color: #dbdbdb;
+}
+
+#logoCenter{
+    width: 250px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.3;
+}
+
+#logoNull{
+    margin-top: 75px;
+    width: 250px;
+    height: 250px;
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+}
+
+#developed{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/*Pagina do Fale Conosco*/
+#tblfaleConosco{
+    width: 820px;
+    min-height: 40px;
+    height: 376px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.categoria{
+    width: 273px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    background-color: #efa52d;
+}
+
+.categoriaPhone{
+    width: 98px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    float: left;
+    background-color: #efa52d;
+}
+
+.categoriaDetalhes{
+    width: 48px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    float: left;
+    background-color: #efa52d;
+    border-radius: 0px 30px 0px 0px;
+}
+
+#titles{
+    height: 40px;
+    width: 800px;
+}
+
+.results{
+    height: 40px;
+    width: 800px;
+    margin-top: 2px;
+}
+
+.result{
+    width: 271px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    background-color: #ffe0b3;
+    border: solid 1px #efa52d;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.phoneResult{
+    width: 96px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 2px;
+    background-color: #ffe0b3;
+    border: solid 1px #efa52d;
+    text-align: center;
+    float: left;
+}
+
+.iconDetalhes{
+    width: 46px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: solid 1px #efa52d;
+    background-color: #ffe0b3;
+    text-align: center;
+    float: left;
+}
+
+/*Tamanho das opções em usuarios*/
+.categoriaOptions{
+    width: 145px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    float: left;
+    background-color: #efa52d;
+    border-radius: 0px 30px 0px 0px;
+}
+
+.iconOptions{
+    width: 143px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    border: solid 1px #efa52d;
+    background-color: #ffe0b3;
+    text-align: center;
+    float: left;
+}
+
+.icon{
+    width: auto;
+    height: 32px;
+    margin-top: 4px;
+}
+
+/*Tabela de Visualização Completa*/
+#form{
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#form tr{
+    min-height: 35px;
+    height:auto;
+}
+
+.label{
+    width: 200px;
+    padding: 0px;
+    background-color: #ffe0b3;
+    border: solid 1px #FFA500;
+    font-family: sans-serif;
+    padding-left: 10px;
+}
+
+.txtBox{
+    width: 350px;
+}
+
+#telefone{
+    width: 125px;
+}
+
+#celular{
+    width: 125px;
+}
+
+.txtArea{
+    width: 250px;
+    height: 100px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#deleteSpace{
+    width: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFA500;
+    border: solid 1px #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Modal*/
+.modal{
+	width:700px;
+	height:500px;
+	background-color:rgba(219, 219, 219, 0.8);
+    border-radius: 5px;
+	margin:auto;
+	margin-top:250px;
+
+}
+
+.modalContainer{
+	width:100%;
+	height:100%;
+    padding: 0px;
+    margin: 0px;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	display:none;
+}
+
+.modal1{
+    width:300px;
+	height:200px;
+	background-color:rgba(123, 219, 219, 0.8);
+    border-radius: 5px;
+	margin:auto;
+	margin-top:300px;
+
+}
+
+.modalContainer1{
+	width:100%;
+	height:100%;
+    padding: 0px;
+    margin: 0px;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	display:none;
+}
+
+/*ICONES DE OPÇÕES*/
+#holderUserOptions{
+    height: 140px;
+    width: 440px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.iconeOpcoes{
+    float: left;
+    height: 140px;
+    width: 150px;
+    margin-right: 70px;
+    transition: 1s;
+}
+
+.iconeOpcoes:hover{
+    background-color: #efa52d;
+    transition: 1s;
+}
+
+.icone{
+    height: 120px;
+    width: 120px;
+    margin-left: 20px;
+}
+
+.titulo{
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0px;
+    text-align: center;
+}
+
+#formNivel{
+    height: 100px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tituloPagina{
+    height: 30px;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+}
+
+#formUsuario{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#btnEnvio{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 54px;
+}
+
+/*Tabela de consulta*/
+
+#tblNiveis{
+    width: 425px;
+    min-height: 40px;
+    height: 400px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#resultsNiveis{
+    width: 425px;
+    height: auto;
+}
+
+#titlesNiveis{
+    height: 40px;
+    width: 425px;
+}
+
+/*CMS DOS CONTEUDOS*/
+#options{
+    width: 474px;
+    height: 150px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.item{
+    height: 150px;
+    width: 128px;
+    float: left;
+    margin-left: 30px;
+    transition:1s;
+}
+
+.item:hover{
+    background-color: #efa52d;
+    transition: 1s; 
+}
+
+.itemName{
+    margin: 0px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*CMS-VERÃO*/
+.textBox{
+    resize: none;
+}
+
+.textos{
+    width: 436px;
+    height: 126px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.fotos{
+    width: 436px;
+    /*height: 126px;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.insertImg{
+    width: 436px;
+    height: 21px;
+    margin-bottom: 10px;
+}
+
+.mostrarImg{
+    width: 300px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+#center{
+    text-align: center;
+    color: #efa52d;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/*TblSucos*/
+#tblSuco{
+    width: 630px;
+    min-height: 40px;
+    height: 376px;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.categoriaTF{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    float: left;
+    background-color: #efa52d;  
+}
+
+.iconTF{
+    width: 98px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: solid 1px #efa52d;
+    background-color: #ffe0b3;
+    text-align: center;
+    float: left;
+}
+
+.resultsSuco{
+    height: 42px;
+    width: 630px;
+    margin-top: 2px;
+}
+
+#titlesSuco{
+    height: 40px;
+    width: 630px;
+}
+
+/*Modal Promoções*/
+.modalPromo{
+    width:100%;
+	height:100%;
+    padding: 0px;
+    margin: 0px;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	display:none;
+}
+
+.modalzito{
+	width:700px;
+	height:500px;
+	background-color:rgba(219, 219, 219, 0.8);
+    border-radius: 5px;
+	margin:auto;
+	margin-top:250px;
+
+}
+
+#xpto{
+    width:300px;
+	height:200px;
+    background: #0099ff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #26b3ff, #0083ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #26b3ff, #0083ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #26b3ff, #0083ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #26b3ff, #0083ff); /* Standard syntax */
+    border-radius: 5px;
+	margin:auto;
+}
+
+/*Tbl resultados categoria*/
+#tblCat{
+    width: 410px;
+    min-height: 40px;
+    height: 300px;
+    overflow: auto;
+    float: left;
+    
+}
+
+#tblHold{
+    width: 820px;
+    height: 340px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resultsSuco{
+    height: 42px;
+    width: 630px;
+    margin-top: 2px;
+}
+
+#titlesCat{
+    height: 40px;
+    width: 390px;
+}
+
+.resultsCat{
+    height: 42px;
+    width: 390px;
+    margin-top: 2px;
+}
+
+.categoriaCat{
+    width: 235px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    background-color: #efa52d;
+}
+
+.resultCat{
+    width: 233px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    background-color: #ffe0b3;
+    border: solid 1px #efa52d;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 2px;
+    text-align: center;
+}

@@ -1,0 +1,591 @@
+@font-face{
+    font-family:fishfingers;
+    src: url('../fonts/Fishfingers.ttf');
+}
+
+@font-face{
+    font-family:caviardreamsB;
+    src: url('../fonts/CaviarDreamsB.ttf');
+}
+
+@font-face{
+    font-family:caviardreams;
+    src: url('../fonts/CaviarDreams.ttf');
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    /*background-image: url(../imagens/bg.jpg);*/
+    background-size: cover;
+    font-family: caviardreams;
+}
+
+/*Cabeçalho*/
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#header{
+    width: 100%;
+    height: 200px;
+    background: #0099ff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #26b3ff, #0083ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #26b3ff, #0083ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #26b3ff, #0083ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #26b3ff, #0083ff); /* Standard syntax */
+    position: fixed;
+    z-index: 999;
+    letter-spacing:2px;
+}
+
+#menuBox{
+    width: 1400px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'fishfingers';
+    font-weight: 400;   
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+#menu{
+    width: 770px;
+    height: 50px;
+    float: left;
+    padding-left: 10px;
+    margin-top: 75px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.menuItem{
+    height: 50px;
+    width: 100px;
+    float: left;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    color: #ffffff;
+    transition: 1s;
+}
+
+.menuItem:hover{
+    background-color: #efa52d;
+    border-radius: 0px 0px 20px 0px;
+    color: #000000;
+    transition: 1s;
+}
+
+#login{
+    width: 350px;
+    height: 40px;
+    margin-top: 75px;
+    float: left;
+}
+
+#labels{
+    height: 40px;
+    width: 300px;
+    float: left;
+}
+
+.caixa{
+    height: 40px;
+    width: 150px;
+    float: left;
+}
+
+#btn{
+    width: 50px;
+    height: 22px;
+    padding-top: 18px;
+    float: left;
+}
+
+.loginBox{
+   width: 130px;
+}
+
+
+/*Slider*/
+#slider{
+    width: 1210px;
+    height: 400px;
+    list-style:none;
+    margin:0 auto;
+    padding:0;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider li{
+    position: absolute;
+    z-index: 0;
+    display:none;
+}
+
+#slider li.sliderActive{
+    z-index: 1;
+}
+
+/*Conteudo*/
+#xpto{
+    height: 200px;
+}
+
+#conteudo{
+    width: 1210px;
+    min-height: 600px;
+    height: auto;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#menuLateral{
+    width: 200px;
+    background: #0099ff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(top, #26b3ff, #0083ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top, #26b3ff, #0083ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top, #26b3ff, #0083ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, #26b3ff, #0083ff); /* Standard syntax */
+    min-height: 645px;
+    height: 100%;
+    float: left;
+    padding-top: 10px;
+}
+
+.lateralItem{
+    height: 40px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    background-color: #FFA500;
+    list-style-type:none;
+    text-align: center;
+    border-radius: 0px 0px 20px 0px;
+    font-family: caviardreamsB;
+    line-height: 40px;
+    transition: 1s;
+}
+
+.subMenu{
+    min-width: 180px;
+    padding: 0px;
+    display: none;
+    position: absolute;
+}
+
+
+.modal{
+	width:700px;
+	height:500px;
+	background-color:rgba(255, 255, 255, 1);
+    border-radius: 5px;
+	margin:auto;
+	margin-top:250px;
+}
+
+.modalContainer{
+	width:100%;
+	height:100%;
+    display: none;
+    padding: 0px;
+    margin: 0px;
+	background: rgba(0, 0, 0, 0.7);
+    position:fixed;
+    z-index: 5;
+}
+
+.submenuItem{
+    list-style-type:none;
+    text-align: center;
+}
+
+.lateralItem:hover{ 
+    transition: 1s;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.lateralItem:hover>.subMenu{
+    display: block;
+    margin-top: -40px;
+    margin-left: 180px;
+    background-color: #FFA500;
+    border-radius: 0px 0px 20px 0px;
+}
+
+.submenuItem:hover{
+    background-color: #d18700;
+    color: #FFFFFF;
+}
+
+#produtos{
+    width: 1010px;
+    height: 645px;
+    background-color: #ffffff;
+    float: left;
+    overflow: auto;
+}
+
+.produtosBox{
+    width: 100%;
+    height: 300px;
+    margin-top: 15px;
+    float: right;
+}
+
+.item{
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 0px 5px;
+    background-color: #FFA500;
+    border-radius: 0px 0px 5px 5px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.imageBox{
+    height: 200px;
+    width: 250px;
+    background-color: #ffffff;
+    padding-left: 50px;
+}
+
+.produtoImg{
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.descricaoProdutos{
+    width: 290px;
+    height: 20px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    font-family: caviardreamsB;
+}
+
+.detalhes{
+    width: 290px;
+    height: 20px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+#redesSociais{
+    height: 200px;
+    width: 64px;
+    position: fixed;
+    margin-left: 1210px;
+}
+
+#redesSociais img{
+    height: 64px;
+    width: 64px;
+}
+
+/*Rodapé*/
+#rodape{
+    width: 100%;
+    height: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footerContentHolder{
+    height: 200px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footerTitle{
+    width: 500px;
+    color: aliceblue;
+    margin-top: 0px;
+}
+
+#siteMap{
+    list-style-image: url(../imagens/sun.png);
+    color: azure;
+    width: 300px;
+    float: left;
+}
+
+#unamed{
+    width: 700px;
+    height: 200px;
+    float: left;
+    color: aliceblue;
+    text-align: center;
+    
+}
+
+/*Pagina Destaques*/
+#pagTitle{
+    height: 35px;
+    width: 1150px;
+    font-size: 35px;
+    font-family: fishfingers;
+    font-weight: lighter;
+    border-bottom: solid 3px #FFA500;
+    margin-left: 0px;
+    margin-right: auto;
+
+}
+
+.sucoDestaque{
+    width: 550px;
+    height: 260px;
+    padding: 20px;
+    float: left;
+}
+
+.destaqueImagem{
+    width: 290px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+.descricaoDestaque{
+    height: 200px;
+    width: 250px;
+    float: left;
+    font-size: 14px;
+    background-color: #ffe0b3;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: caviardreams;
+}
+
+.tituloDestaque{
+    width: 240px;
+    font-size: 22px;
+    font-family: fishfingers;
+    font-weight: lighter;
+    border-bottom: solid 3px #FFA500;
+}
+
+.txtDescritivo{
+    width: 550px;
+    padding-top: 10px;
+    float: inherit;
+    background-color: #ffe0b3;
+    text-align: justify;
+}
+
+/*Pagina Promoções*/
+.sucoPromo{
+    width: 1130px;
+    height: 260px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.promoImagem{
+    width: 350px;
+    height: 220px;
+    float: left;
+    margin-right: 20px;
+}
+
+.descricaoPromo{
+    height: 220px;
+    width: 760px;
+    float: left;
+    font-size: 14px;
+    background-color: #ffe0b3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tituloPromo{
+    width: 700px;
+    font-family: fishfingers;
+    font-weight: lighter;
+    font-size: 30px;
+    border-bottom: solid 3px #FFA500;
+}
+
+.txtPromo{
+    width: 720px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+}
+
+/*PÁGINA VERÃO e SUCO*/
+
+#artigo{
+    width: 1000px;
+    min-height: 700px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background-color: #ffe0b3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+#imagemMain{
+    height: 291px;
+    min-width: 200px;
+    max-width: 616px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*A imagem se ajusta a altura máxima da div, sem distorcer a largura da imagem*/
+img{
+    height: 100%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.txt{
+    text-align: justify;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+}
+
+.images{
+    height: 300px;
+    width: 480px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    float: left;
+}
+
+.text{
+    height: 300px;
+    width: 480px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    float: left;
+    text-align: justify;
+}
+
+#lastImage{
+    width: 480px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+
+.confira{
+    height: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Página Lojas*/
+.loja{
+    width: 550px;
+    height: 260px;
+    padding: 20px;
+    float: left;
+}
+
+.lojaImagem{
+    width: 290px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+.descricaoLoja{
+    height: 200px;
+    width: 250px;
+    float: left;
+    font-size: 14px;
+    background-color: #ffe0b3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tituloLoja{
+    width: 240px;
+    border-bottom: solid 3px #FFA500;
+    font-size: 16px;
+}
+
+/*Página Fale Conosco*/
+#form{
+    width: 550px;
+    margin-left: 20px;
+}
+
+#form tr{
+    min-height: 35px;
+    height:auto;
+}
+
+.label{
+    width: 200px;
+    padding: 0px;
+    background-color: #ffe0b3;
+    border: solid 1px #FFA500;
+    font-family: caviardreamsB;
+    padding-left: 10px;
+}
+
+.txtHolder{
+    
+}
+
+.txtBox{
+    width: 350px;
+}
+
+#telefone{
+    width: 125px;
+}
+
+#celular{
+    width: 125px;
+}
+
+.txtArea{
+    width: 250px;
+    height: 100px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#btnContato{
+    margin-left: 20px;
+    margin-top: 10px;
+}
