@@ -20,7 +20,7 @@
 
             function Modal(idIten){
                 $.ajax({
-                    type:"GET",
+                    type:"POST",
                     url: "modalDetalhes.php",
                     data: {id:idIten},
                     success:function(dados){
@@ -38,6 +38,10 @@
                     $('body').html(dados);
                 }
               });
+            }
+
+            function MostrarPesquisa(){
+              document.getElementByClass("barraPesquisa").style.width="200px";
             }
         </script>
         <script type="text/javascript" src="lib/jquery.min.js"></script>
@@ -62,65 +66,7 @@
             </div>
         </div>
         <header id="header">
-            <div id="menuBox">
-                <div class="logo">
-                    <img alt="logo" src="imagens/logoBeta.png" class="logoImage">
-                </div>
-                <nav id="menu">
-                    <a href="index.php">
-                        <div class="menuItem">
-                            Home
-                        </div>
-                    </a>
-                    <a href="destaques.php">
-                        <div class="menuItem">
-                            Destaques
-                        </div>
-                    </a>
-                    <a href="promocoes.php">
-                        <div class="menuItem">
-                            Promoções
-                        </div>
-                    </a>
-                    <a href="verao.php">
-                        <div class="menuItem">
-                            Verão
-                        </div>
-                    </a>
-                    <a href="suco.php">
-                        <div class="menuItem">
-                            Sobre Suco
-                        </div>
-                    </a>
-                    <a href="locais.php">
-                        <div class="menuItem">
-                        Locais
-                        </div>
-                    </a>
-                    <a href="faleconosco.php">
-                        <div class="menuItem">
-                        Fale Conosco
-                        </div>
-                    </a>
-                </nav>
-                <form name="frmLogin" method="post" action="login.php">
-                    <div id="login">
-                        <div id="labels">
-                            <div class="caixa">
-                                Usuário:
-                                <input class="loginBox" type="text" name="txtUsuario" size="15">
-                            </div>
-                            <div class="caixa">
-                                Senha:
-                                <input class="loginBox" type="password" name="txtSenha" size="15">
-                            </div>
-                        </div>
-                        <div id="btn">
-                            <input type="submit" name="btnLogin" value="Login">
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <?php menuUser(); ?>
         </header>
         <div id="xpto"></div>
         <main id="conteudo">
@@ -164,6 +110,9 @@
                         $idSub = $_POST['idSub'];
                         $sql = "select * from tbl_produto as p
                         inner join tbl_prod_subcategoria as ps on p.idProduto = ps.idProduto where ativo = 1 and ps.idSubcategoria = $idSub;";
+                      }elseif(isset($_GET['btnSearch'])){
+                        $pesquisa = $_GET['txtPesquisa'];
+                        $sql = "SELECT * FROM tbl_produto where nomeProduto like '%$pesquisa%' AND ativo = 1;";
                       }else {
                         $sql = "select * from tbl_produto  where ativo = 1;";
                       }
@@ -177,7 +126,7 @@
                         <div class="descricaoProdutos">Nome:<?php echo($rsProdutos['nomeProduto'])?></div>
                         <div class="descricaoProdutos">Ingredientes:<?php echo($rsProdutos['ingredientes'])?></div>
                         <div class="descricaoProdutos">Preço:<?php echo($rsProdutos['preco'])?></div>
-                        <a class="ver" href="#" onclick="Modal(<?php echo(1)?>)">
+                        <a class="ver" href="#" onclick="Modal(<?php echo($rsProdutos['idProduto'])?>)">
                             <div class="detalhes">Detalhes</div>
                         </a>
                     </div>

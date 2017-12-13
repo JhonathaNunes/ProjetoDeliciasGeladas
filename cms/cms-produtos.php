@@ -14,6 +14,14 @@
             header('location:cms-produtos.php');
             echo($sql);
         }
+
+    if(isset($_POST['excluir'])){
+        $idSuco = $_POST['id'];
+
+        $sql = "DELETE FROM tbl_produto WHERE idProduto=$idSuco";
+
+        mysqli_query(ConexaoDb(), $sql);
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -23,6 +31,7 @@
         <title>Cms - Delicias Geladas</title>
         <meta charset="utf-8">
          <link rel="stylesheet" type="text/css" href="css/style.css">
+         <script type="text/javascript" src="js/jquery.js"></script>
         <script>
             $(document).ready(function(){
                 $(".ver").click(function(){
@@ -39,6 +48,17 @@
                         $('.modalzito').html(dados);
                     }
                 })
+            }
+
+            function Deletar(idItem){
+                $.ajax({
+                    type:"POST",
+                    url:"cms-produtos.php",
+                    data:{excluir:true, id:idItem},
+                    success: function(dados){
+                        $("#holder").html(dados);
+                    }
+                });
             }
         </script>
     </head>
@@ -127,7 +147,7 @@
                             <a href="cms-gerenciamento-suco.php?codigo=<?php echo($rsProduto['idProduto'])?>">
                                <img class="icon" src="imagens/sharingan.png" alt="">
                             </a>
-                            <a href="cms-gerenciamento-suco.php?codigo=<?php echo($rsProduto['idProduto'])?>&delete=true">
+                            <a href="#" onclick="Deletar(<?php echo($rsProduto['idProduto'])?>)">
                                 <img class="icon" src="imagens/delete.png" alt="">
                             </a>
                         </div>

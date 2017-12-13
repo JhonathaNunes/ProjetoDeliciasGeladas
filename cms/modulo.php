@@ -13,7 +13,7 @@
 
         //Conexão Servidor
         //$conexao = mysqli_connect('192.168.0.2', 'pc19', 'senai127', 'dbpc19');
-        
+
         return $conexao;
     }
 
@@ -117,4 +117,73 @@
             window.location.href = "../index.php"  </script>');
         }
 
-    } ?>
+    }
+
+    function menuUser(){?>
+      <div id="menuBox">
+          <div class="logo">
+              <img alt="logo" src="imagens/logoBeta.png" class="logoImage">
+          </div>
+          <nav id="menu">
+              <a href="index.php">
+                  <div class="menuItem">
+                      Home
+                  </div>
+              </a>
+              <a href="destaques.php">
+                  <div class="menuItem">
+                      Destaques
+                  </div>
+              </a>
+              <a href="promocoes.php">
+                  <div class="menuItem">
+                      Promoções
+                  </div>
+              </a>
+              <a href="verao.php">
+                  <div class="menuItem">
+                      Verão
+                  </div>
+              </a>
+              <a href="suco.php">
+                  <div class="menuItem">
+                      Sobre Suco
+                  </div>
+              </a>
+              <a href="locais.php">
+                  <div class="menuItem">
+                  Locais
+                  </div>
+              </a>
+              <a href="faleconosco.php">
+                  <div class="menuItem">
+                  Fale Conosco
+                  </div>
+              </a>
+          </nav>
+          <form name="frmLogin" method="post" action="login.php">
+              <div id="login">
+                  <div id="labels">
+                      <div class="caixa">
+                          Usuário:
+                          <input class="loginBox" type="text" name="txtUsuario" size="15">
+                      </div>
+                      <div class="caixa">
+                          Senha:
+                          <input class="loginBox" type="password" name="txtSenha" size="15">
+                      </div>
+                  </div>
+                  <div id="btn">
+                      <input type="submit" name="btnLogin" value="Login">
+                  </div>
+              </div>
+          </form>
+
+      </div>
+      <div class="barraPesquisa">
+        <form action="index.php" method="GET">
+          <input class="n" type="text" name="txtPesquisa">
+          <input class="n" type="submit" name="btnSearch" value="Pesquisar">
+        </form>
+      </div>
+    <?php } ?>

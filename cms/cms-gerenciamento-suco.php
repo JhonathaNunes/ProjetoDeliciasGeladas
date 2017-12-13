@@ -2,43 +2,33 @@
     //Inclusao do arquivo modulo na pagina atual
     require_once('modulo.php');
 
-    $nome = '';
-    $telefone = '';
-    $logradouro = '';
-    $idCidade = '';
-    $idCidade = 0;
-    $idEstado = 0;
+    $nome = null;
+    $descricao = null;
+    $ingredientes = null;
+    $idsub = 0;
+    $preco = null;
+    $checked = null;
 
     $required = "required";
     $nomeBotao = 'btnSave';
     if(isset($_GET["codigo"])){
-        //Verifica se é para ser feita a exclusão da loja
-        if(isset($_GET["delete"])){
-            $sql = "DELETE FROM tbl_produto WHERE idProduto = ".$_GET['codigo'];
-
-            mysqli_query(ConexaoDb(), $sql);
-            header('location:cms-produtos.php');
-
-        }else{
-            //NOT WORKING --- NEEDS TO FIX IN THE DATABASE
-            /*
             $nomeBotao = "btnEdit";
             $_SESSION['codigo'] = $_GET["codigo"];
 
-            $sql = "SELECT p.nomeProduto p.descricao, p.ingregientes, p.preco, p.imagem, p.ativo, s.idSubcategoria FROM tbl_produto as p inner join tbl_subcategoria as s on p.idSubCategoria = s.idSubcategoria where idProduto = ".$_SESSION['codigo'].";";
+            $sql = "select * from view_prod_sub where idProduto = ".$_SESSION['codigo'].";";
 
             $select = mysqli_query(ConexaoDb(), $sql);
-            $rsLoja = mysqli_fetch_array($select);
+            $rsProduto = mysqli_fetch_array($select);
 
-            $nome = $rsLoja['nomeLoja'];
-            $telefone = $rsLoja['telefone'];
-            $logradouro = $rsLoja['logradouro'];
-            $idCidade = $rsLoja['idCidade'];
-            $idEstado = $rsLoja['idEstado'];
-            $imagem = $rsLoja['imagem'];
-            $hrAbrir = substr($rsLoja['horario'],0 , strpos($rsLoja['horario'], '-'));
-            $hrFechar = substr($rsLoja['horario'], strpos($rsLoja['horario'], '-')+1, 6);*/
-        }
+            $nome = $rsProduto['nomeProduto'];
+            $descricao = $rsProduto['descricao'];
+            $ingredientes = $rsProduto['ingredientes'];
+            $idsub = $rsProduto['idSubcategoria'];
+            $preco = str_replace('.', ',',$rsProduto['preco']);
+            $imagem = $rsProduto['imagem'];
+            if($rsProduto["ativo"]){
+               $checked="checked";
+             }
     }
 
     if(isset($_POST['btnEdit'])){
@@ -46,30 +36,38 @@
         $uploadDir="arquivos/";
 
         $nome = $_POST['txtNome'];
-        $telefone = $_POST['txtTelefone'];
-        $logradouro = $_POST['txtLogradouro'];
-        $idCidade = $_POST['cbCidade'];
-        $hrOpen = $_POST['cbHoraOpen'];
-        $hrClose = $_POST['cbHoraClose'];
-        $imgLoja = basename($_FILES['imgLoja']['name']);
+        $desc = $_POST['txtDesc'];
+        $ingredientes = $_POST['txtIngredientes'];
+        $idsubCat = $_POST['cbSubCat'];
+        $preco = str_replace(',', '.',$_POST['txtPreco']);
+        if(isset($_POST['ckAtivo'])){
+            $ativo = 1;
+        }else{
+            $ativo = 0;
+        }
+        $imgSuco = basename($_FILES['imgSuco']['name']);
 
-        if (strstr($imgLoja, '.jpg') || strstr($imgLoja, '.png')){
-            $extensao = substr($imgLoja, strpos($imgLoja, '.'), 5);
-            $prefixo = substr($imgLoja, 0, strpos($imgLoja, "."));
+        if (strstr($imgSuco, '.jpg') || strstr($imgSuco, '.png')){
+            $extensao = substr($imgSuco, strpos($imgSuco, '.'), 5);
+            $prefixo = substr($imgSuco, 0, strpos($imgSuco, "."));
 
             $nomeImg = md5($prefixo).$extensao;
 
             $uploadFile = $uploadDir.$nomeImg;
 
-            if(move_uploaded_file($_FILES['imgLoja']['tmp_name'], $uploadFile)){
-                $sql="update tbl_loja set nomeLoja = '".$nome."', logradouro = '".$logradouro."', telefone = '".$telefone."', horario = '".$hrOpen." - ".$hrClose."', idCidade = ".$idCidade.", imagem = '".$uploadFile."' where idLoja = ".$_SESSION['codigo'].";";
+            if(move_uploaded_file($_FILES['imgSuco']['tmp_name'], $uploadFile)){
+                $sql="update tbl_produto set nomeProduto = '".$nome."', descricao = '".$desc."', ingredientes = '".$ingredientes."',
+                preco = '".$preco."', ativo = ".$ativo.", imagem = '".$uploadFile."' where idProduto = ".$_SESSION['codigo'].";";
+                mysqli_query(ConexaoDb(), $sql);
+
+                $sql="UPDATE tbl_prod_subcategoria set idSubcategoria =".$idsubCat." WHERE idProduto=".$_SESSION['codigo'].";";
 
                 mysqli_query(ConexaoDb(), $sql);
-                header('location:cms-lojas.php');
-            }
+                header('location:cms-produtos.php');
         }else{
             echo("<script>alert('O arquivo escolhido deve ser do tipo .jpg ou .png! Tente novamente)</script>");
         }
+      }
     }
 
     if(isset($_POST['btnSave'])){
@@ -96,7 +94,8 @@
             $uploadFile = $uploadDir.$nomeImg;
 
             if(move_uploaded_file($_FILES['imgSuco']['tmp_name'], $uploadFile)){
-                $sql="INSERT INTO tbl_produto (nomeProduto, descricao, ingredientes, preco, ativo, imagem) values ('".$nome."', '".$desc."', '".$ingredientes."', ".$preco.",".$ativo.", '".$uploadFile."');";
+                $sql="INSERT INTO tbl_produto (nomeProduto, descricao, ingredientes, preco, ativo, imagem)
+                values ('".$nome."', '".$desc."', '".$ingredientes."', ".$preco.",".$ativo.", '".$uploadFile."');";
 
                 mysqli_query(ConexaoDb(), $sql);
 
@@ -186,7 +185,7 @@
                                 Descrição(*):
                             </td>
                             <td class="txtHolder">
-                                <textarea name="txtDesc" cols="47" rows="3" maxlength="500" class="textBox" required></textarea>
+                                <textarea name="txtDesc" cols="47" rows="3" maxlength="500" class="textBox" required><?php echo($descricao) ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -194,7 +193,7 @@
                                 Ingredientes(*):
                             </td>
                             <td class="txtHolder">
-                                <input class="txtBox" type="text" name="txtIngredientes" value="<?php echo($logradouro) ?>" maxlength="40" required>
+                                <input class="txtBox" type="text" name="txtIngredientes" value="<?php echo($ingredientes) ?>" maxlength="40" required>
                             </td>
                         </tr>
                         <tr>
@@ -204,21 +203,21 @@
                             <td class="txtHolder">
                                 <select name="cbSubCat">
                                 <?php
-                                    if ($idEstado >= 1){
+                                    if ($idsub >= 1){
 
-                                        $sql = "SELECT * FROM tbl_subcategoria;";
+                                        $sql = "SELECT * FROM tbl_subcategoria WHERE idSubcategoria = $idsub;";
 
                                         $select = mysqli_query(ConexaoDb(), $sql);
 
                                         $rsSubCat = mysqli_fetch_array($select);
                                 ?>
-                                    <option value="<?php echo($idEstado) ?>" selected>
+                                    <option value="<?php echo($idsub) ?>" selected>
                                         <?php echo($rsSubCat['nome'])?>
                                     </option>
 
                                     <?php }
 
-                                        $sql = "SELECT * FROM tbl_subcategoria order by idCategoria;";
+                                        $sql = "SELECT * FROM tbl_subcategoria WHERE idSubcategoria != $idsub order by idCategoria;";
 
                                         $select = mysqli_query(ConexaoDb(), $sql);
 
@@ -239,7 +238,7 @@
                                 Preço(*):
                             </td>
                             <td class="txtHolder">
-                                <input type="text" name="txtPreco" onkeypress="return(MascaraMoeda(this,'.',',',event))" required>
+                                <input type="text" name="txtPreco" onkeypress="return(MascaraMoeda(this,'.',',',event))" value="<?php echo($preco) ?>" required>
                             </td>
                         </tr>
                         <tr>
@@ -247,7 +246,7 @@
                                 Ativo(*):
                             </td>
                             <td class="txtHolder">
-                                <input type="checkbox" name="ckAtivo">
+                                <input type="checkbox" name="ckAtivo" <?php echo($checked); ?>>
                             </td>
                         </tr>
                         <tr>
@@ -255,7 +254,7 @@
                                 Selecionar Imagem(*):
                             </td>
                             <td class="txtHolder">
-                                <input type="file"  name="imgSuco" <?php echo($required)?> required>
+                                <input type="file"  name="imgSuco" required>
                             </td>
                         </tr>
                             <?php if($nomeBotao == "btnEdit"){ ?>
