@@ -9,10 +9,10 @@
     /*Função para conectar ao banco de dados*/
     function ConexaoDb(){
         //Conexão local
-        $conexao = mysqli_connect('localhost', 'root', 'bcd127', 'dbdeliciasgeladas');
+        //$conexao = mysqli_connect('localhost', 'root', 'bcd127', 'dbdeliciasgeladas');
 
         //Conexão Servidor
-        //$conexao = mysqli_connect('192.168.0.2', 'pc19', 'senai127', 'dbpc19');
+        $conexao = mysqli_connect('192.168.0.2', 'pc19', 'senai127', 'dbpc19');
 
         return $conexao;
     }

@@ -279,7 +279,16 @@ a{
 }
 
 .details{
-  
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.detailsTxt{
+    height: auto;
+    width: 500px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .descricaoProdutos{

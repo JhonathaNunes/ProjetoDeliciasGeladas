@@ -30,19 +30,16 @@
             <a href="#" class="fechar"><img src="cms/imagens/close.png"></a>
         </div>
         <div class="details">
-					<div class="">
+					<div class="promoImagem" style="margin:auto; float:none;">
 							<img src="cms/<?php echo($rs['imagem'])?>" alt="teste">
 					</div>
-					<div class="">
+					<div class="detailsTxt">
 							<h2 class=""><?php echo($rs['nomeProduto'])?></h2>
 							<div>
-									<p>Ingredientes: <?php echo($rs['ingredientes'])?></p>
-									<p>Preço: <?php echo($rs['preco'])?></p>
+								<p>Ingredientes: <?php echo($rs['ingredientes'])?></p>
+								<p>Preço: <?php echo($rs['preco'])?></p>
+                                <p><?php echo($rs['descricao'])?></p>
 							</div>
-					</div>
-
-					<div class="">
-									<?php echo($rs['descricao'])?>
 					</div>
         </div>
     </body>

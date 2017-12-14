@@ -18,6 +18,13 @@ img{
     margin-right: auto;
 }
 
+.grafico{
+    width:500px;
+    border-right:solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 #holder{
     width: 900px;
